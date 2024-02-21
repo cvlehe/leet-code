@@ -13,7 +13,6 @@
  */
 
 function maxDepth(root: TreeNode | null): number {
-    if(!root) return 0;
     return getDepth(root, 0);
 };
 
