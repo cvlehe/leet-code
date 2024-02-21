@@ -14,22 +14,13 @@
 
 function maxDepth(root: TreeNode | null): number {
     if(!root) return 0;
-    return getDepth(root, 1);
+    return getDepth(root, 0);
 };
 
 function getDepth(root: TreeNode, depth: number): number {
-    if (!root.left && !root.right) {
+    if (!root) {
         return depth;
     }
     depth++;
-    let depthLeft = depth;
-    if(root.left) {
-        depthLeft = getDepth(root.left, depth);
-    }
-    let depthRight = depth;
-    if(root.right) {
-        depthRight = getDepth(root.right, depth);
-    }
-
-    return depthLeft > depthRight ? depthLeft : depthRight;
+    return Math.max(getDepth(root.left, depth), getDepth(root.right, depth));
 }
