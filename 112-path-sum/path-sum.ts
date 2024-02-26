@@ -12,25 +12,13 @@
  * }
  */
 
-function hasPathSum(root: TreeNode | null, targetSum: number, result: number = 0): boolean {
-        // If the current node is null, return false
-    if (!root) return false;
-
-    // Add the current node's value to the result
-    result += root.val;
-
-    // If the current node is a leaf, check if the result equals the targetSum
-    if (!root.left && !root.right) {
-        return result === targetSum;
-    }
-
-    // Recursively check the left and right subtrees
-    return hasPathSum(root.left, targetSum, result) || hasPathSum(root.right, targetSum, result);
+function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
+    return hasSum(root, targetSum, 0);
 };
 
 function hasSum(root: TreeNode | null, targetSum: number, currentSum: number): boolean {
     if (!root) return false;
     const newSum = root.val + currentSum;
-    if (newSum === targetSum) return true;
+    if (!root.left && !root.right) return newSum === targetSum;
     return hasSum(root.left, targetSum, newSum) || hasSum(root.right, targetSum, newSum);
 }
