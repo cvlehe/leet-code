@@ -9,7 +9,6 @@ function maxProfit(prices: number[]): number {
         }
         if(lowest !== undefined) {
             const diff = price - lowest;
-            console.log(lowest);
             if (diff > profit) profit = diff;
         }
     }
