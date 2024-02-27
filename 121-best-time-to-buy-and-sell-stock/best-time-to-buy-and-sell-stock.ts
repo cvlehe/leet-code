@@ -1,10 +1,10 @@
 function maxProfit(prices: number[]): number {
-    let lowest: number;
+    let lowest = Number.MAX_VALUE;
     let profit = 0;
 
     for(let i = 0; i < prices.length; i++) {
         const price = prices[i];
-        if (lowest === undefined || price < lowest) {
+        if (price < lowest) {
             lowest = price;
         }
         const diff = price - lowest;
