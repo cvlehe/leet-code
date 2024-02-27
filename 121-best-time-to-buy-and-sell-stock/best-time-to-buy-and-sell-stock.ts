@@ -7,10 +7,8 @@ function maxProfit(prices: number[]): number {
         if (lowest === undefined || price < lowest) {
             lowest = price;
         }
-        if(lowest !== undefined) {
-            const diff = price - lowest;
-            if (diff > profit) profit = diff;
-        }
+        const diff = price - lowest;
+        if (diff > profit) profit = diff;
     }
     return profit;
 };
